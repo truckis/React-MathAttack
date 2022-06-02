@@ -1,0 +1,39 @@
+.math-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3rem 22rem;
+    /* border: 1px solid black; */
+}
+
+.math-container h1 {
+    border: 3px solid #003049;
+    border-radius: 12px;
+    padding: 2rem 3rem;
+    font-size: 60px;
+    font-family: 'Nunito', sans-serif;
+    height: 9rem;
+    width: 9rem;
+}
+
+.math-container h2 {
+    font-size: 60px;
+    font-family: 'Nunito', sans-serif;
+    margin: 0px 20px;
+}
+
+.math-container input {
+    height: 9rem;
+    width: 9rem;
+    font-size: 60px;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 12px;
+    text-align: center;
+    border: 5px solid #003049;
+}
+
+.utilities-container {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem 5rem;
+}

@@ -1,11 +1,14 @@
 .button {
-  font: inherit;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
   padding: 0.5rem 1.5rem;
-  border: 1px solid #8b005d;
+  border: 1px solid #00f5d4;
   color: white;
-  background: #8b005d;
+  background: #003049;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
   cursor: pointer;
+  margin: 10px;
+  transition: background .2s ;
 }
 
 .button:focus {
@@ -14,7 +17,7 @@
 
 .button:hover,
 .button:active {
-  background: #ac0e77;
-  border-color: #ac0e77;
+  background: #00f5d4;
+  border-color: #00f5d4;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
 }

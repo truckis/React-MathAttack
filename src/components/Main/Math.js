@@ -1,23 +1,28 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './Math.css'
-import ScoreComponent from './Score';
-import TimerComponent from './Timer'
-import Controls from './Controls'
+import ScoreComponent from '../Controls/Score';
+import TimerComponent from '../Controls/Timer'
+import Controls from '../Controls/Controls'
 
 let score = 0;
 let points = 10;
 
 const MathInput = (props) => {
 
+    // Props from Nav selectors
     const difficulty = props.difficulty;
     const mathType = props.mathType;
+
     // Sets the max num based on selected difficulty
     let setDifficultyInteger = 10;
     let setMathSign = '+';
+
     // Stores user input for the answer
     const answerRef = useRef();
+
     // Array of two randomly generated Numbers
     const [randomNumbers, setRandomNumbers] = useState([]);
+
     // Stores the state of the correct answer
     const [correctAnswer, setCorrectAnswer] = useState()
 
@@ -57,29 +62,29 @@ const MathInput = (props) => {
         }
     }
 
+    const executeCorrectAnswer = () => {
+        score = score + points
+        setCorrectAnswer(true)
+        generateNumbers();
+        console.log(`Score: ${score}`)
+    }
+
     
 
-    // CheckAnswer function that returns 
+    // CheckAnswer function 
     const checkAnswer = (mathSign) => {
         console.log(mathSign)
         if(mathSign === '+' && randomNumbers[0] + randomNumbers[1] == answerRef.current.value ){
             console.log(`Correct Answer ${randomNumbers[0] + randomNumbers[1]}`)
-            score = score + points
-            setCorrectAnswer(true)
-            generateNumbers();
-            console.log(`Score: ${score}`)
+            executeCorrectAnswer()
 
         }else if(mathSign === '-' && randomNumbers[0] - randomNumbers[1] == answerRef.current.value) {
             console.log(`Correct Answer for Subtraction`)
-            score = score + points
-            generateNumbers();
-            setCorrectAnswer(true)
+            executeCorrectAnswer()
             
         }else if(mathSign === 'x' && randomNumbers[0] * randomNumbers[1] == answerRef.current.value){
             console.log(`Correct Answer for Multiplication`)
-            score = score + points
-            generateNumbers();
-            setCorrectAnswer(true)
+            executeCorrectAnswer()
         }else {
             setCorrectAnswer(false)
             score = score - points
@@ -97,6 +102,7 @@ const MathInput = (props) => {
 
     const resetHandler = () => {
         setRandomNumbers([])
+        score = 0;
         console.log('Reset Handler')
     }
 
@@ -112,7 +118,7 @@ const MathInput = (props) => {
 
     return (
         <>
-        <div className='utilities-container'>
+        <div className='controls-container'>
             <TimerComponent />
             <Controls onStart={startHandler} onReset={resetHandler}/>
             <ScoreComponent score={score}  />

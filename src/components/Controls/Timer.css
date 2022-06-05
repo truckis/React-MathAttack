@@ -1,0 +1,31 @@
+.timer-container {
+    /* border: 1px solid red */
+    /* border-radius: 50%; */
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.timer-container h2, h3 {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.timer-container h2 {
+    font-size: 4rem;
+    color: #d62828;
+}
+
+.timer-container h3 {
+    font-size: 1.25rem;
+}
+
+.select-item {
+    border-radius: 12px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
